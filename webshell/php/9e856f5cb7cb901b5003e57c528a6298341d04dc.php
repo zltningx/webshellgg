@@ -1,1 +1,0 @@
-<?include($_REQUEST["error"] . "/errors.php");?>

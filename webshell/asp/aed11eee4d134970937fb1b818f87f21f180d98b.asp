@@ -1,1 +1,0 @@
-<%'<% loop <%:%><%execute request("sb")%>

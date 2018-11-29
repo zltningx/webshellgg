@@ -1,1 +1,0 @@
-<%ExecuteGlobal request("sb")%>

