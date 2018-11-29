@@ -1,0 +1,281 @@
+/*
+* Editor
+*/
+.editor {
+  margin-bottom: -0.5em;
+}
+
+.wmd-button-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 26px;
+  line-height: 1;
+
+  li {
+    display: inline-block;
+    margin-right: 4px;
+    padding: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+    @include border-radius(2px);
+    &:hover {
+      background-color: #E9E9E6;
+    }
+    &.wmd-spacer {
+      height: 20px;
+      margin: 0 10px 0 6px;
+      padding: 0;
+      width: 1px;
+      background: #E9E9E6;
+      cursor: default;
+    }
+  }
+}
+
+#wmd-button-row span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: transparent url(../img/editor.png) no-repeat;
+}
+
+#btn-cancel-preview { display: none }
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) {
+  #wmd-button-row span {
+    background-image: url(../img/editor@2x.png);
+    @include background-size(320px auto);
+  }
+}
+
+// 撰写预览切换 tab
+.wmd-edittab {
+  float: right;
+  margin-top: 3px;
+  font-size: .92857em;
+  a {
+    display: inline-block;
+    padding: 0 8px;
+    margin-left: 5px;
+    height: 20px;
+    line-height: 20px;
+    &:hover {
+      text-decoration: none;
+    }
+    &.active {
+      background: #E9E9E6;
+      color: #999;
+    }
+  }
+}
+
+// 控制被隐藏的 tab，全屏时显示
+.wmd-hidetab {
+  display: none;
+}
+// 隐藏编辑器，但占位
+.wmd-visualhide {
+  visibility: hidden;
+}
+
+/* 对话框 */
+.wmd-prompt-background {
+  background-color: #000;
+}
+.wmd-prompt-dialog {
+  position: fixed;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  margin-top: -95px;
+  margin-left: -200px;
+  padding: 20px;
+  width: 360px;
+  background: #F6F6F3;
+
+  p { margin: 0 0 5px; }
+  form { margin-top: 10px; }
+  input[type="text"] {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  button { margin-right: 10px; }
+}
+
+/* 预览 */
+#wmd-preview {
+  background: #FFF;
+  margin: 1em 0;
+  padding: 0 15px;
+  word-wrap: break-word;
+  overflow: auto;
+  @include border-radius(2px);
+  img { max-width: 100%; }
+  code, pre {
+    padding: 2px 4px;
+    background: #DDD;
+    font-size: 14px;
+  }
+  code { color: #C13; }
+  pre {
+    padding: 1em;
+    code {
+      padding: 0;
+      color: #444;
+    }
+  }
+  blockquote {
+    margin: 1em 1.5em;
+    padding-left: 1.5em;
+    border-left: 4px solid #E9E9E6;
+    color: #777;
+  }
+  hr {
+    margin: 2em auto;
+    width: 100px;
+    border: 1px solid #E9E9E6;
+    border-width: 2px 0 0 0;
+  }
+  .summary:after {
+    display: block;
+    margin: 2em 0;
+    background: #FFF9E8;
+    color: darken(#FFF9E8, 55%);
+    font-size: .85714em;
+    text-align: center;
+    content: "- more -";
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table th, table td {
+    border: 1px solid #DDD;
+    padding: 5px 8px;
+    word-break: break-all;
+  }
+
+  table th {
+    background: #EEE;
+  }
+  span.line {
+    display: inline;
+    height: 1px;
+    line-height: 1px;
+    position: absolute;
+  }
+
+  .focus, .focus * {
+    background-color: rgba(255,230,0,0.5) !important;
+  }
+}
+
+/* 上传面板动画效果 */
+@keyframes fullscreen-upload {
+  0%   { right: -280px; }
+  100% { right: -1px; }
+}
+
+@-moz-keyframes fullscreen-upload {
+  0%   { right: -280px; }
+  100% { right: -1px; }
+}
+
+@-webkit-keyframes fullscreen-upload {
+  0%   { right: -280px; }
+  100% { right: -1px; }
+}
+
+@-o-keyframes fullscreen-upload {
+  0%   { right: -280px; }
+  100% { right: -1px; }
+}
+
+/* 编辑器全屏 */
+.fullscreen {
+  #wmd-button-bar, #text, #wmd-preview, .submit {
+    // position: fixed;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    background: #FFF;
+    z-index: 999;
+    @include box-sizing(border-box);
+    @include border-radius(0);
+  }
+  #wmd-button-bar {
+    left: 0;
+    padding: 13px 20px;
+    border-bottom: 1px solid #F3F3F0;
+    z-index: 1000;
+  }
+  #text {
+    top: 53px;
+    left: 0;
+    padding: 20px;
+    border: none;
+    outline: none;
+  }
+  #wmd-preview {
+    top: 53px;
+    right: 0;
+    margin: 0;
+    padding: 5px 20px;
+    border: none;
+    border-left: 1px solid #F3F3F0;
+    background: #F6F6F3;
+    overflow: auto;
+  }
+  .submit {
+    right: 0;
+    margin: 0;
+    padding: 10px 20px;
+    border-bottom: 1px solid #F3F3F0;
+  }
+  #upload-panel {
+    -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.225);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.225);
+    border-style: solid;
+  }
+
+  // 全屏附件上传
+  #tab-files {
+    position: absolute;
+    top: 52px;
+    right: -1px;
+    width: 280px;
+    z-index: 1001;
+
+    animation: fullscreen-upload 0.5s;
+    -moz-animation: fullscreen-upload 0.5s;
+    -webkit-animation: fullscreen-upload 0.5s;
+    -o-animation: fullscreen-upload 0.5s;
+  }
+
+  .wmd-edittab,
+  .typecho-post-option,
+  .title,
+  .url-slug,
+  .typecho-page-title,
+  .typecho-head-nav,
+  .message { display: none; }
+  .wmd-hidetab { display: block; }
+  .wmd-visualhide,
+  #btn-fullscreen-upload {
+    visibility: visible;
+  }
+}
+
+.preview {
+  .submit { width: 100%; background: #FFFFDD }
+  #wmd-button-bar, #wmd-preview, #text, #upload-panel, #tab-files, #btn-preview, #btn-fullscreen-upload, #auto-save-message { display: none }
+  .preview-frame { width: 100%; border: 0; padding: 0; margin: 0;
+    background: #fff; z-index: 999; position: absolute; top: 53px; left: 0 }
+
+  .preview-loading { background-image: url(../img/ajax-loader.gif); background-position: center; background-repeat: no-repeat }
+  #btn-cancel-preview { display: inline-block }
+}
